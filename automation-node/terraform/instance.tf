@@ -4,13 +4,12 @@
 #}
 
 
-resource "google_compute_instance" "nginx" {
-  count = "2"
-  name         = "${var.prefix}-vm-${count.index}"
+resource "google_compute_instance" "automation" {
+  name         = "${var.prefix}-vm-automation"
   machine_type = "n1-standard-1"
   zone         = "${var.region}-a"
 
-  tags = ["nginx", "webapp"]
+  tags = ["automation", "webapp"]
 
   boot_disk {
     initialize_params {
@@ -33,6 +32,7 @@ resource "google_compute_instance" "nginx" {
 
   metadata = {
     name = "nginx"
+    ssh-keys = "${var.ssh_user}:${file(var.ssh_key)}"
   }
 
   metadata_startup_script = "echo hi > /test.txt"
