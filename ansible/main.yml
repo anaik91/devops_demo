@@ -18,3 +18,13 @@
     - debug:
         var: cmd.start
 
+
+    - name: install tree
+      yum:
+        name: tree
+        state: present
+      register: treeout
+
+    - debug:
+        var: treeout
+
