@@ -1,0 +1,20 @@
+---
+- hosts: all
+  vars:
+    apim_component_name: "ps"
+  become: yes
+  tasks:
+    - name: Validate Access
+      ping:
+      register: ping_result
+
+    - debug:
+        var: ping_result
+
+    - name: hostname
+      command: "hostnamectl"
+      register: cmd
+
+    - debug:
+        var: cmd.start
+

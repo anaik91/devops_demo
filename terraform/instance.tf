@@ -4,8 +4,8 @@
 #}
 
 
-resource "google_compute_instance" "automation" {
-  name         = "${var.prefix}-vm-automation"
+resource "google_compute_instance" "master" {
+  name         = "${var.prefix}-vm-master"
   machine_type = "n1-standard-1"
   zone         = "${var.region}-a"
 

@@ -17,5 +17,6 @@ variable "ssh_user" {
 }
 
 variable "ssh_key" {
-  default = "C:\\Users\\I501950\\.ssh\\id_rsa.pub"
+ # default = "C:\\Users\\I501950\\.ssh\\id_rsa.pub"
+   default = "/home/anaik/.ssh/id_rsa.pub"
 }
